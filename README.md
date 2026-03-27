@@ -73,3 +73,13 @@ XGBClassifier(
 ```
  
 ---
+
+### Stage 2 — Severity Classifier (Low / Medium / High)
+ 
+Only traffic flagged as malicious by Stage 1 is passed here. Severity levels follow this mapping:
+ 
+| Severity | Score | Example Attacks |
+|---|---|---|
+| **Low** | 0 | `nmap`, `ipsweep`, `portsweep`, `satan` — Reconnaissance |
+| **Medium** | 1 | `neptune`, `smurf`, `teardrop`, `back` — DoS attacks |
+| **High** | 2 | `rootkit`, `buffer_overflow`, `sqlattack`, `guess_passwd` — Unauthorized access |
