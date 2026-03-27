@@ -157,3 +157,38 @@ def cascade_analysis(X_test, y_test, y_test_severity):
 | Common Attack Precision / Recall | **~100%** |
  
 ---
+
+## 🔁 How to Reproduce
+ 
+### 1. Install dependencies
+ 
+```bash
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn joblib
+```
+ 
+### 2. Run notebooks in order
+ 
+```
+1. feature_engineering.ipynb     → generates pre-processedData.csv
+2. binary_classifier.ipynb       → trains & saves binary_classifier.pkl
+3. severity_classifier.ipynb     → trains & saves severity_model.pkl
+4. cascade_pipeline.ipynb        → end-to-end evaluation
+```
+ 
+### 3. Run cascade inference
+ 
+```python
+import joblib
+import numpy as np
+ 
+binary_model = joblib.load('cascadeclassifier/binary_classifier.pkl')
+severity_model = joblib.load('cascadeclassifier/severity_model.pkl')
+ 
+binary_pred = binary_model.predict(X_test)
+severity_pred = np.full(len(X_test), -1)
+attack_mask = binary_pred == 1
+if attack_mask.any():
+    severity_pred[attack_mask] = severity_model.predict(X_test[attack_mask])
+```
+ 
+---
