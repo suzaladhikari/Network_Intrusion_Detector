@@ -197,3 +197,13 @@ if attack_mask.any():
  
 **Why a hierarchical (cascade) approach?**  
 Splitting the problem into two stages mirrors real-world IDS triage: first flag any threat, then assess how dangerous it is. It also avoids a single multi-class model struggling with both the normal/attack boundary and severity boundaries simultaneously.
+
+**Why XGBoost for both stages?**  
+XGBoost consistently outperformed other models on the most operationally critical metrics — recall (catching all attacks) and false alarm rate (avoiding alert fatigue) — for both the binary and severity tasks.
+ 
+**Why drop low-variance and highly correlated features?**  
+Features with near-zero variance (e.g., `land`, `is_host_login`) contributed almost no signal to the model (correlation < 0.03 with target) despite their theoretical security relevance. Highly correlated feature pairs were pruned to reduce redundancy and prevent multicollinearity from distorting model weights.
+ 
+**Why log-transform skewed features?**  
+Network traffic data (byte counts, packet rates) tends to follow power-law distributions. `np.log1p` compression reduces the dominance of extreme outliers and brings features closer to a normal distribution, which benefits linear models and improves gradient-based learning stability.
+ 
