@@ -131,3 +131,16 @@ def cascade_analysis(X_test, y_test, y_test_severity):
     if attack_mask.any():
         severity_pred[attack_mask] = severity_model.predict(X_test[attack_mask])
 ```
+
+
+**Final label mapping:**
+ 
+| `severity_pred` Value | Meaning |
+|---|---|
+| `-1` | Normal traffic (not flagged by binary classifier) |
+| `0` | Low severity attack |
+| `1` | Medium severity attack |
+| `2` | High severity attack |
+ 
+---
+ 
