@@ -144,3 +144,16 @@ def cascade_analysis(X_test, y_test, y_test_severity):
  
 ---
  
+
+
+## 📈 Key Results
+ 
+| Metric | Value |
+|---|---|
+| Binary Classification F1-Score | **~99.4%** |
+| Severity Classification Cohen's Kappa | **~98.9%** |
+| False Alarm Rate (both stages) | **< 1%** |
+| Rare Attack (High Severity) F1-Score | **~97.4%** |
+| Common Attack Precision / Recall | **~100%** |
+ 
+---
