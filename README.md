@@ -46,3 +46,12 @@ All preprocessing was done before model training:
 ### Stage 1 — Binary Classifier (Malicious vs. Benign)
  
 Six models were trained and evaluated. The goal was maximizing **recall** (catching all attacks) while minimizing **false alarm rate**.
+
+| Model | Precision | Recall | F1-Score | False Alarm Rate | ROC-AUC |
+|---|---|---|---|---|---|
+| Logistic Regression | 0.9597 | 0.9821 | 0.9708 | 3.81% | 0.9931 |
+| Linear SVM | 0.9592 | 0.9887 | 0.9737 | 3.88% | 0.9749 |
+| Gaussian Naive Bayes | 0.9010 | 0.9291 | 0.9148 | 9.42% | 0.9555 |
+| Decision Tree | 0.9830 | 0.9847 | 0.9838 | 1.57% | 0.9845 |
+| Random Forest | 0.9892 | 0.9986 | 0.9939 | 1.01% | 0.9943 |
+| **XGBoost** ✅ | **0.9987** | **0.9994** | **0.9991** | **0.12%** | **0.9991** |
