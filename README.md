@@ -192,3 +192,8 @@ if attack_mask.any():
 ```
  
 ---
+
+## 🧠 Design Decisions
+ 
+**Why a hierarchical (cascade) approach?**  
+Splitting the problem into two stages mirrors real-world IDS triage: first flag any threat, then assess how dangerous it is. It also avoids a single multi-class model struggling with both the normal/attack boundary and severity boundaries simultaneously.
