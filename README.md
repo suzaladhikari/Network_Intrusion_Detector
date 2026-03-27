@@ -42,3 +42,7 @@ All preprocessing was done before model training:
   - `total_bytes = src_bytes + dst_bytes` — total data transferred
  
 ---
+ 
+### Stage 1 — Binary Classifier (Malicious vs. Benign)
+ 
+Six models were trained and evaluated. The goal was maximizing **recall** (catching all attacks) while minimizing **false alarm rate**.
