@@ -207,3 +207,18 @@ Features with near-zero variance (e.g., `land`, `is_host_login`) contributed alm
 **Why log-transform skewed features?**  
 Network traffic data (byte counts, packet rates) tends to follow power-law distributions. `np.log1p` compression reduces the dominance of extreme outliers and brings features closer to a normal distribution, which benefits linear models and improves gradient-based learning stability.
  
+
+
+## 📚 References
+ 
+- KDD Cup 1999 Dataset: [http://kdd.ics.uci.edu/databases/kddcup99/](http://kdd.ics.uci.edu/databases/kddcup99/)
+- XGBoost: Chen & Guestrin (2016), *XGBoost: A Scalable Tree Boosting System*
+- Cohen's Kappa as an evaluation metric for ordinal multi-class classification
+ 
+---
+ 
+## 👤 Author
+ 
+**Sujal Adhikari**  
+Network Intrusion Detection — Hierarchical Binary and Severity Classification
+ 
