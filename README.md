@@ -83,3 +83,15 @@ Only traffic flagged as malicious by Stage 1 is passed here. Severity levels fol
 | **Low** | 0 | `nmap`, `ipsweep`, `portsweep`, `satan` — Reconnaissance |
 | **Medium** | 1 | `neptune`, `smurf`, `teardrop`, `back` — DoS attacks |
 | **High** | 2 | `rootkit`, `buffer_overflow`, `sqlattack`, `guess_passwd` — Unauthorized access |
+
+ 
+Six models were evaluated using **Cohen's Kappa**, **MAE**, and per-class **precision/recall** for rare (High severity) attacks.
+ 
+| Model | MAE | Cohen's Kappa | Rare Attack Precision | Rare Attack Recall | Rare Attack F1 | Misclassification | False Alarm |
+|---|---|---|---|---|---|---|---|
+| Logistic Regression | 0.0074 | 0.9863 | 0.9757 | 0.9901 | 0.9829 | 0.15% | 0.99% |
+| Linear SVM | 0.0071 | 0.9866 | 0.9887 | 0.9741 | 0.9814 | 0.07% | 2.59% |
+| Gaussian Naive Bayes | 0.0754 | 0.8458 | 0.8656 | 0.8816 | 0.8735 | 0.82% | 11.84% |
+| Decision Tree | 0.0153 | 0.9719 | 0.9509 | 0.9322 | 0.9415 | 0.29% | 6.78% |
+| Random Forest | 0.0070 | 0.9889 | 0.9961 | 0.9531 | 0.9742 | 0.02% | 4.69% |
+| **XGBoost** ✅ | **0.0012** | **0.9981** | **0.9975** | **0.9938** | **0.9957** | **0.01%** | **0.62%** |
