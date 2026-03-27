@@ -55,3 +55,21 @@ Six models were trained and evaluated. The goal was maximizing **recall** (catch
 | Decision Tree | 0.9830 | 0.9847 | 0.9838 | 1.57% | 0.9845 |
 | Random Forest | 0.9892 | 0.9986 | 0.9939 | 1.01% | 0.9943 |
 | **XGBoost** ✅ | **0.9987** | **0.9994** | **0.9991** | **0.12%** | **0.9991** |
+
+> **Selected model: XGBoost Classifier**  
+> Chosen for its superior recall and lowest false alarm rate. Saved as `binary_classifier.pkl`.
+ 
+**XGBoost Config:**
+```python
+XGBClassifier(
+    learning_rate=0.1,
+    n_estimators=435,
+    max_depth=6,
+    colsample_bytree=0.6,
+    reg_lambda=0.1,
+    subsample=0.7,
+    min_child_weight=2
+)
+```
+ 
+---
