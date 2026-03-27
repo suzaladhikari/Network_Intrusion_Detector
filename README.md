@@ -34,3 +34,11 @@ All preprocessing was done before model training:
 - **Log transformation** applied to highly skewed features (`np.log1p`) to reduce the effect of outliers
  
 - **Low-variance features dropped** (variance < 0.001): `land`, `is_host_login`, `flag_OTH`, `flag_RSTOS0`, `flag_S2` — these showed near-zero correlation with the target column (< 0.03)
+
+- **Highly correlated features removed** (correlation > 0.95): `srv_serror_rate`, `srv_rerror_rate`, `dst_host_serror_rate`, `flag_S0` — to reduce multicollinearity
+ 
+- **New features engineered:**
+  - `bytes_ratio = src_bytes / (dst_bytes + 1)` — ratio of outbound to inbound bytes
+  - `total_bytes = src_bytes + dst_bytes` — total data transferred
+ 
+---
