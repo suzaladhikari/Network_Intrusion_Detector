@@ -120,4 +120,14 @@ XGBClassifier(
 The two models are chained together in a single inference function:
 
 
+ ```python
+def cascade_analysis(X_test, y_test, y_test_severity):
+    # Stage 1: Binary prediction
+    binary_pred = binary_model.predict(X_test)
  
+    # Stage 2: Only run severity model on predicted attacks
+    severity_pred = np.full(len(X_test), -1)  # -1 = normal (not an attack)
+    attack_mask = binary_pred == 1
+    if attack_mask.any():
+        severity_pred[attack_mask] = severity_model.predict(X_test[attack_mask])
+```
