@@ -17,3 +17,11 @@ KDD Cup 1999 — a widely-used benchmark dataset for network intrusion detection
 Contains labeled network connection records with 41 features
 Attack types span four categories: DoS, Probe, R2L, and U2R
 Significant class imbalance between normal and rare attack types
+
+
+---
+ 
+## ⚙️ Pipeline
+ 
+### Stage 0 — Feature Engineering & Preprocessing
+
