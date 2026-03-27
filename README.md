@@ -113,4 +113,11 @@ XGBClassifier(
     min_child_weight=2
 )
 ```
+
+ 
+### Stage 3 — Cascade Pipeline (End-to-End)
+ 
+The two models are chained together in a single inference function:
+
+
  
