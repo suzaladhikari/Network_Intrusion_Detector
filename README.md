@@ -95,3 +95,22 @@ Six models were evaluated using **Cohen's Kappa**, **MAE**, and per-class **prec
 | Decision Tree | 0.0153 | 0.9719 | 0.9509 | 0.9322 | 0.9415 | 0.29% | 6.78% |
 | Random Forest | 0.0070 | 0.9889 | 0.9961 | 0.9531 | 0.9742 | 0.02% | 4.69% |
 | **XGBoost** ✅ | **0.0012** | **0.9981** | **0.9975** | **0.9938** | **0.9957** | **0.01%** | **0.62%** |
+
+
+> **Selected model: XGBoost Classifier**  
+> Best balance between catching rare high-severity attacks and minimizing misclassification. Saved as `severity_model.pkl`.
+ 
+**XGBoost Config:**
+```python
+XGBClassifier(
+    learning_rate=1,
+    n_estimators=43,
+    max_depth=6,
+    colsample_bytree=0.6,
+    objective="multi:softmax",
+    reg_lambda=0.1,
+    subsample=0.7,
+    min_child_weight=2
+)
+```
+ 
